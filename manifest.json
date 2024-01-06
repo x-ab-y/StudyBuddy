@@ -1,7 +1,7 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "name": "hackED bionic reader",
-  "description": "Open source text converter designed to help you read faster!",
+  "name": "StudyBuddy",
+  "description": "Open source tool to help you academically!",
   "author": "x-ab-y",
   "version": "0.0.1",
   "manifest_version": 3,
@@ -20,6 +20,11 @@
   "host_permissions": ["http://*/", "https://*/"],
   "action": {
     "default_popup": "src/popup/popup.html"
+  },
+
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": false
   },
 
   "commands": {
