@@ -8,6 +8,7 @@ import {
 
 let applyButton = document.getElementById("applyButton");
 let greyscale = document.getElementById("greyscale");
+let makeFocusPage = document.getElementById("makeFocusPage");
 let autoButton = document.getElementById("autoButton");
 let excludePatternInput = document.getElementById("excludePattern");
 let excludePageButton = document.getElementById("excludePageButton");
@@ -16,6 +17,12 @@ let highlightSheetInput = document.getElementById("highlight-input");
 let restSheetInput = document.getElementById("rest-input");
 let algorithmInput = document.getElementById("algorithmInput");
 let fontSelect = document.getElementById("font-select");
+
+
+let currentURL = window.location.href;
+chrome.storage.session.set({ 'currentURL': currentURL }, function() {
+  console.log('Current URL saved to session storage');
+});
 
 var buttonEnabledClass = "button-enabled";
 var buttonDisabledClass = "button-disabled";
@@ -164,11 +171,13 @@ fontSelect.addEventListener('change', async function(event) {
 
 greyscale.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
+ 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: setGreyscale,
   });
+
+  
 
   chrome.storage.sync.get(["isOn"], (data) => {
     // updatebionifyToggle(!data.isOn);
@@ -176,6 +185,10 @@ greyscale.addEventListener("click", async () => {
   });
 
 });
+
+makeFocusPage.addEventListener("click", async () => {
+  window.open("../focusmode/focuswindow.html" );
+})
 
 autoButton.addEventListener("click", async () => {
   chrome.storage.sync.get(["autoApply"], (data) => {

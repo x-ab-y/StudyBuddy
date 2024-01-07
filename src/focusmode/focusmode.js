@@ -34,5 +34,10 @@ async function fetchAndExtractText(url) {
     }
 }
 
-const url = 'https://agilemanifesto.org/history.html'; // Replace with your URL
-fetchAndExtractText(url);
+
+chrome.storage.session.get(['currentURL'], function(result) {
+    let storedURL = result.currentURL;
+    console.log('Retrieved URL from session storage:', storedURL);
+    fetchAndExtractText(storedURL); 
+  
+  });
