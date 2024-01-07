@@ -165,9 +165,7 @@ fontSelect.addEventListener('change', async function(event) {
   //   function: fontchange(),
   // });
   
-  chrome.storage.sync.get(["isOn"], function(data) {
-    if (data.isOn) {
-      // Execute the bionify function in the active tab
+
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         function: bionify,
@@ -176,8 +174,6 @@ fontSelect.addEventListener('change', async function(event) {
         target: { tabId: tab.id },
         function: bionify,
       });
-    }
-  });
 });
 
 greyscale.addEventListener("click", async () => {
