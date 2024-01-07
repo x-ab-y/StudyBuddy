@@ -25,9 +25,9 @@ button {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
-    sans-serif;
-  /* font-family: 'Open Dyslexic', sans-serif; */
+  /* font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
+    sans-serif; */
+  font-family: 'Open Dyslexic', sans-serif;
   font-weight: 600;
   /* height: 48px; */
   height: 36px;
@@ -47,13 +47,14 @@ button {
   touch-action: manipulation;
   white-space: nowrap;
   will-change: box-shadow, transform;
-  width: 70%;
+  width: 75%;
 }
 
 body {
   margin: 0px;
-  font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
-    sans-serif;
+  /* font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
+    sans-serif; */
+  font-family: 'Open Dyslexic', sans-serif;
   background-color: #102318;
   color: #B6C4B6;
   width: 25em;  
@@ -145,7 +146,7 @@ input {
 }
 
 .header_logo {
-  font-family: Open Sans, Segoe UI, Helvetica Neue, Ubuntu, sans-serif;
+  font-family: 'Open Dyslexic', sans-serif;
   width: 12rem;
   font-size: 24px;
   letter-spacing: 2px;
@@ -163,12 +164,13 @@ input {
 }
 
 #font-select {
-  width: 65%; /* Adjust as needed */
+  width: 70%; /* Adjust as needed */
   background-color: #304D30;
   border-width: 0.5em;
   border-radius: 0.5em;
   border-color: #304D30;
   color: #fff;
+  font-family: 'Open Dyslexic', sans-serif;
 }
 
 #font-select::after {
