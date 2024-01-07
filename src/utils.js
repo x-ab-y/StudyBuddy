@@ -33,27 +33,16 @@ export function bionify() {
       return defaultRes;
     }
   }
-  let testFont = "Consolas";
+
   chrome.storage.sync.get(["algorithm"], (data) => {
     var algorithm = parseAlgorithm(data.algorithm);
 
     function createStylesheet() {
-      chrome.storage.sync.get(["highlightSheet", "restSheet", "font"], function (data) {
-        console.log(data.font);
+      chrome.storage.sync.get(["highlightSheet", "restSheet"], function (data) {
         var style = document.createElement("style");
         style.type = "text/css";
         style.id = "bionify-style-id";
         style.innerHTML =
-        `@font-face {
-          font-family: 'Open Dyslexic';
-          src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/ttf/OpenDyslexic3-Regular.ttf') format('woff2'),
-               url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/ttf/OpenDyslexic3-Bold.ttf') format('woff2')
-               ;
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }` +
-        ".bionify-highlight, .bionify-rest { font-family: '" + data.font + "', sans-serif; }" +
           ".bionify-highlight {" +
           data.highlightSheet +
           " } .bionify-rest {" +

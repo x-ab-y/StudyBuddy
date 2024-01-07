@@ -13,7 +13,6 @@ let restoreButton = document.getElementById("restore-button");
 let highlightSheetInput = document.getElementById("highlight-input");
 let restSheetInput = document.getElementById("rest-input");
 let algorithmInput = document.getElementById("algorithmInput");
-let fontSelect = document.getElementById("font-select");
 
 var buttonEnabledClass = "button-enabled";
 var buttonDisabledClass = "button-disabled";
@@ -158,6 +157,21 @@ fontSelect.addEventListener('change', async function(event) {
     target: { tabId: tab.id },
     function: bionify,
   });
+
+greyscale.addEventListener("click", async () => {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: setGreyscale,
+  });
+
+  chrome.storage.sync.get(["greyscale"], (data) => {
+    // updatebionifyToggle(!data.isOn);
+    chrome.storage.sync.set({ greyscale: !data.greyscale });
+  });
+
+
 });
 
 autoButton.addEventListener("click", async () => {
@@ -178,11 +192,3 @@ function onRestInputChange() {
 function onAlgorithmInputChange() {
   chrome.storage.sync.set({ algorithm: algorithmInput.value });
 }
-
-document.querySelector('#go-to-options').addEventListener('click', function() {
-  if (chrome.runtime.openOptionsPage) {
-    chrome.runtime.openOptionsPage();
-  } else {
-    window.open(chrome.runtime.getURL('options.html'));
-  }
-});
