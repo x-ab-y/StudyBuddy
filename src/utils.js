@@ -72,23 +72,7 @@ export function bionify() {
       return document.getElementById("bionify-style-id") != null;
     }
 
-    let commonWords = [
-      "the",
-      "be",
-      "to",
-      "of",
-      "and",
-      "a",
-      "an",
-      "it",
-      "at",
-      "on",
-      "he",
-      "she",
-      "but",
-      "is",
-      "my",
-    ];
+    let commonWords = [];
 
     function bionifyifyWord(word) {
       function isCommon(word) {
