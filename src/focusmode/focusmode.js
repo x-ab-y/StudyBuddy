@@ -5,7 +5,7 @@ let themeForest = document.getElementById("forest");
 let themeRoses = document.getElementById("roses");
 let themeOcean = document.getElementById("ocean");
 let fonts = document.getElementById("fonts");
-let indent = document.getElementById("indentation");
+let size = document.getElementById("size");
 let background = document.getElementById("background");
 let paragraph = document.getElementById("paragraph");
 let cButton = document.getElementById("cButton");
@@ -36,6 +36,12 @@ themeRoses.addEventListener("click", function() {
 
 themeOcean.addEventListener("click", function() {
     changeTheme(oceanThemeColor);
+})
+
+cButton.addEventListener("click", function() {
+    // check for line spacing
+    paragraph.style.lineHeight = Number(fonts.value);
+    document.getElementById("par").style.fontSize = size.value.toString() + "px";
 })
 
 function changeTheme(theme) {

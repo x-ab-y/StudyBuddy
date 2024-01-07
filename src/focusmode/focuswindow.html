@@ -12,34 +12,35 @@
     }
 
     .layout {
-        display: grid;
+        /* display: grid;
         grid-template-areas:
-        'main main main main main main main feature';
+        'main main main main main main main feature'; */
         gap: 10px;
         padding: 10px;
+        display: flex;
     }
 
-    .paragraph {
+    .paragraphs {
         background-color: white;
         padding: 20px;
-        text-align: left;
         border-radius: 5px;
+        line-height: 2;
         margin: 0 auto;
         margin-top: 10px;
         margin-left: 10%;
         margin-right: 2%;
         grid-area: main;
+        flex:1
     }
 
     .features {
         grid-area: feature;
         padding: 10px;
-        text-align: right;
         border-radius: 5px;
         margin: 0 auto;
         margin-top: 10px;
         margin-left: 2%;
-        margin-right: 10%;
+        margin-right: 2%;
     }
 
     .theme {
@@ -51,7 +52,6 @@
     .par {
         font-size: 15px;
         margin: 5px;
-        line-height: 2;
         color: black;
     }
 
@@ -112,14 +112,19 @@
         font-size: 15px;
     }
 
+    .size {
+        size: 10px;
+        max-width: 100px;
+    }
+
 </style>
 
 <body id="background">
     <div class="layout">
         <!-- main paragraphs -->
-        <div class="paragraph" id="paragraph">
-            <p id="par">the paragraph</p>
-        </div>
+        <section class="paragraphs" id="paragraph">
+            <p class="par" id="par">the paragraph</p>
+        </section>
 
         <!-- features -->
         <div class="features">
@@ -139,23 +144,24 @@
                 <option value="1">Single</option>
                 <option value="1.15">1.15</option>
                 <option value="1.5">1.5</option>
-                <option value="2">Double</option>
+                <option value="2" selected="selected">Double</option>
             </select>
 
-            <!-- indentation -->
-            <p class="theme">Indentation</p>
+            <!-- indentation DOES NOT WORK-->
+            <!-- <p class="theme">Indentation</p>
             <input type="radio" id="default" name="indentation" value="d">
-            <label for="default" id="defaultColor">Default</label><br>
+            <label for="default" id="defaultColor">None</label><br>
             <input type="radio" id="indent" name="indentation" value="i">
-            <label for="indent" id="indentColor">Indent</label><br>
-<br>
+            <label for="indent" id="indentColor">Indent</label><br> -->
+
+            <!-- font size -->
+            <p class="theme">Font Size</p>
+            <input class="size" id="size" type="number" value="15">
+
+        <br>
             <button class="general" id="cButton">Confirm</button>
         </div>
     </div>
-    <script>
-        document.getElementById("default").click();
-        document.getElementById("fonts").sele
-    </script>
     <script src="focusmode.js"></script>
 </body>
 
