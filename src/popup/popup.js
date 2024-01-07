@@ -15,6 +15,7 @@ let restoreButton = document.getElementById("restore-button");
 let highlightSheetInput = document.getElementById("highlight-input");
 let restSheetInput = document.getElementById("rest-input");
 let algorithmInput = document.getElementById("algorithmInput");
+let fontSelect = document.getElementById("font-select");
 
 var buttonEnabledClass = "button-enabled";
 var buttonDisabledClass = "button-disabled";
@@ -168,6 +169,24 @@ greyscale.addEventListener("click", async () => {
     chrome.storage.sync.set({ greyscale: !data.greyscale });
   });
 
+fontSelect.addEventListener('change', async function(event) {
+  var selectedFont = event.target.value;
+  // Save the selected font to chrome.storage
+  chrome.storage.sync.set({font: selectedFont}, function() {
+    console.log('Font saved as ' + selectedFont);
+  });
+
+  // Get the current active tab
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: bionify,
+  });
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: bionify,
+  });
 });
 
 autoButton.addEventListener("click", async () => {
@@ -196,3 +215,11 @@ function onRestInputChange() {
 function onAlgorithmInputChange() {
   chrome.storage.sync.set({ algorithm: algorithmInput.value });
 }
+
+document.querySelector('#go-to-options').addEventListener('click', function() {
+  if (chrome.runtime.openOptionsPage) {
+    chrome.runtime.openOptionsPage();
+  } else {
+    window.open(chrome.runtime.getURL('options.html'));
+  }
+});
