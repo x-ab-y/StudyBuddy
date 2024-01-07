@@ -16,7 +16,7 @@
     "service_worker": "src/background.js",
     "type": "module"
   },
-  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "webNavigation"],
   "host_permissions": ["http://*/", "https://*/"],
   "action": {
     "default_popup": "src/popup/popup.html"

@@ -72,23 +72,7 @@ export function bionify() {
       return document.getElementById("bionify-style-id") != null;
     }
 
-    let commonWords = [
-      "the",
-      "be",
-      "to",
-      "of",
-      "and",
-      "a",
-      "an",
-      "it",
-      "at",
-      "on",
-      "he",
-      "she",
-      "but",
-      "is",
-      "my",
-    ];
+    let commonWords = [];
 
     function bionifyifyWord(word) {
       function isCommon(word) {
@@ -207,4 +191,13 @@ export function patternsInclude(patterns, url) {
     }
   }
   return false;
+}
+
+export function setGreyscale() {
+  if (document.body.style.filter  === 'grayscale(100%)') {
+    document.body.style.filter = "";
+  } else {
+    document.body.style.filter  = 'grayscale(100%)';
+  }
+  
 }
