@@ -1,14 +1,54 @@
-// function: main
-// set up buttons
-// get text from url
-// use function: parse on text
+// set up buttons and variables
+let themeNight = document.getElementById("night");
+let themeDay = document.getElementById("day");
+let themeForest = document.getElementById("forest");
+let themeRoses = document.getElementById("roses");
+let themeOcean = document.getElementById("ocean");
+let fonts = document.getElementById("fonts");
+let indent = document.getElementById("indentation");
+let background = document.getElementById("background");
+let paragraph = document.getElementById("paragraph");
+let cButton = document.getElementById("cButton");
+let themeList = [document.getElementById("par"), document.getElementById("defaultColor"), document.getElementById("indentColor"), document.getElementById("cButton")]
+const themeCollection = document.getElementsByClassName("theme");
+var nightThemeColor = ["rgb(21, 21, 73)", "rgb(17, 17, 43)", "rgb(196, 196, 196)", "rgb(41, 41, 142)"]
+var dayThemeColor = ["rgb(252, 245, 237)", "white", "rgb(0, 0, 0)", "rgb(255, 228, 196)"];
+var forestThemeColor = ["rgb(199, 237, 204)", "rgb(207, 243, 214)", "rgb(37, 97, 53)", "rgb(120, 234, 133)"];
+var rosesThemeColor = ["rgb(235, 176, 189)", "rgb(249, 212, 225)", "rgb(107, 44, 66)","rgb(216,112,147"];
+var oceanThemeColor = ["rgb(200, 226, 255)", "rgb(177, 214, 255)","rgb(21, 21, 103)", "rgb(61, 171, 244)"];
 
-// function: parse
-// parse text and bionify them
+// set up button listeners
+themeNight.addEventListener("click", function() {
+    changeTheme(nightThemeColor);
+})
 
-import {
-    bionify
-    } from "../utils.js";
+themeDay.addEventListener("click", function() {
+    changeTheme(dayThemeColor);
+})
+
+themeForest.addEventListener("click", function() {
+    changeTheme(forestThemeColor);
+})
+
+themeRoses.addEventListener("click", function() {
+    changeTheme(rosesThemeColor);
+})
+
+themeOcean.addEventListener("click", function() {
+    changeTheme(oceanThemeColor);
+})
+
+function changeTheme(theme) {
+    background.style.backgroundColor = theme[0];
+    paragraph.style.backgroundColor = theme[1];
+    for (let i = 0; i < themeCollection.length; i++) {
+        themeCollection[i].style.color = theme[2];
+        }
+    for (let i = 0; i < themeList.length; i++) {
+        themeList[i].style.color = theme[2];
+        }
+    cButton.style.backgroundColor = theme[3];
+}
 
 async function fetchAndExtractText(url) {
     try {
@@ -25,8 +65,6 @@ async function fetchAndExtractText(url) {
 
         document.getElementById("par").innerText = text;
 
-        bionify();
-
         return text;
     } catch (error) {
         console.error('Error fetching or parsing:', error);
@@ -34,5 +72,9 @@ async function fetchAndExtractText(url) {
     }
 }
 
-const url = 'https://agilemanifesto.org/history.html'; // Replace with your URL
-fetchAndExtractText(url);
+function main() {
+    const url = 'https://agilemanifesto.org/history.html'; // Replace with your URL
+    var text = fetchAndExtractText(url);
+}
+
+main();

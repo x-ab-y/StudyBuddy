@@ -42,43 +42,121 @@
         margin-right: 10%;
     }
 
-    p {
+    .theme {
+        font-size: 15px;
+        margin: 5px;
+        margin-top: 10px;
+    }
+
+    .par {
         font-size: 15px;
         margin: 5px;
         line-height: 2;
+        color: black;
     }
 
-    button {
+    .general {
         font-size: 10px;
-        padding: 10px;
+        padding: 5px;
+        margin: 5px;
         justify-content: left;
-        background-color: bisque;
+        background-color: rgb(255, 228, 196);
         border-radius: 5px;
         border: 0;
     }
 
     button:hover {
-      background-color: rgb(235, 212, 183);
+        filter: brightness(75%);
     }
 
     button:active {
-      background-color: rgb(220, 181, 134);
+        filter: saturate(120%);
+    }
+
+    .night {
+        background-color: rgb(25, 25, 112);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .day {
+        background-color: rgb(255, 254, 211);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .forest {
+        background-color: rgb(106, 240, 131);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .roses {
+        background-color: rgb(231, 47, 86);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .ocean {
+        background-color: rgb(73, 73, 241);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    label {
+        font-size: 15px;
     }
 
 </style>
 
-<body>
+<body id="background">
     <div class="layout">
-        <div class="paragraph">
+        <!-- main paragraphs -->
+        <div class="paragraph" id="paragraph">
             <p id="par">the paragraph</p>
         </div>
+
+        <!-- features -->
         <div class="features">
-            <button>Toggle</button>
-            <button>Tog2</button>
+            <!-- themes -->
+            <p class="theme">Themes</p>
+            <div class="themes">
+                <button class="night" id="night"></button>
+                <button class="day" id="day"></button>
+                <button class="forest" id="forest"></button>
+                <button class="roses" id="roses"></button>
+                <button class="ocean" id="ocean"></button>
+            </div>
+
+            <!-- line spacing -->
+            <p class="theme">Spacing</p>
+            <select name="fonts" id="fonts">
+                <option value="1">Single</option>
+                <option value="1.15">1.15</option>
+                <option value="1.5">1.5</option>
+                <option value="2">Double</option>
+            </select>
+
+            <!-- indentation -->
+            <p class="theme">Indentation</p>
+            <input type="radio" id="default" name="indentation" value="d">
+            <label for="default" id="defaultColor">Default</label><br>
+            <input type="radio" id="indent" name="indentation" value="i">
+            <label for="indent" id="indentColor">Indent</label><br>
+<br>
+            <button class="general" id="cButton">Confirm</button>
         </div>
     </div>
-    <!-- <script src="../utils.js"></script> -->
-    <script src="focusmode.js" type="module"></script>
+    <script>
+        document.getElementById("default").click();
+        document.getElementById("fonts").sele
+    </script>
+    <script src="focusmode.js"></script>
 </body>
 
 </html>
