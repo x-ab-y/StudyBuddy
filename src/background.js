@@ -11,7 +11,6 @@ chrome.runtime.onInstalled.addListener(() => {
     highlightSheet: defaultHighlightSheet,
     restSheet: defaultRestSheet,
     autoApply: false,
-    greyscale: false,
     excludedPatterns: [],
     algorithm: defaultAlgorithm,
   });
