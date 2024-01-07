@@ -18,8 +18,8 @@ let restSheetInput = document.getElementById("rest-input");
 let algorithmInput = document.getElementById("algorithmInput");
 let fontSelect = document.getElementById("font-select");
 
-
-let currentURL = window.location.href;
+let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+let currentURL = tab.url;
 chrome.storage.session.set({ 'currentURL': currentURL }, function() {
   console.log('Current URL saved to session storage');
 });
