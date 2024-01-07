@@ -3,11 +3,9 @@ import {
   defaultHighlightSheet,
   defaultRestSheet,
   defaultAlgorithm,
-  setGreyscale,
 } from "../utils.js";
 
 let applyButton = document.getElementById("applyButton");
-let greyscale = document.getElementById("greyscale");
 let autoButton = document.getElementById("autoButton");
 let excludePatternInput = document.getElementById("excludePattern");
 let excludePageButton = document.getElementById("excludePageButton");
@@ -81,18 +79,6 @@ function updateAutoApplyText(isAuto) {
   }
 }
 
-function updateGreyscaleText(isGrey) {
-  if (isGrey) {
-    greyscale.innerText = "Disable Greyscale mode";
-    setClass(greyscale, buttonDisabledClass);
-    // document.body.style.filter  = 'grayscale(100%)';
-    console.log(document.body.style.filter);
-  } else {
-    greyscale.innerText = "Enable Greyscale mode";
-    setClass(greyscale, buttonEnabledClass);
-  }
-}
-
 chrome.storage.sync.get(
   ["highlightSheet", "restSheet", "autoApply", "isOn", "algorithm"],
   (data) => {
@@ -100,7 +86,6 @@ chrome.storage.sync.get(
     restSheetInput.value = data.restSheet;
     algorithmInput.value = data.algorithm;
     updateAutoApplyText(data.autoApply);
-    updateGreyscaleText(data.greyscale);
     // updatebionifyToggle(data.isOn);
   }
 );
@@ -132,42 +117,28 @@ restoreButton.addEventListener("click", async () => {
   algorithmInput.value = defaultAlgorithm;
 });
 
-// function updatebionifyToggle(isOn) {
-//   if (isOn) {
-//     applyButton.innerText = "Bionify: On";
-//     setClass(applyButton, buttonEnabledClass);
-//   } else {
-//     applyButton.innerText = "Bionify: Off";
-//     setClass(applyButton, buttonDisabledClass);
-//   }
-// }
+function updatebionifyToggle(isOn) {
+  if (isOn) {
+    applyButton.innerText = "Bionify: On";
+    setClass(applyButton, buttonEnabledClass);
+  } else {
+    applyButton.innerText = "Bionify: Off";
+    setClass(applyButton, buttonDisabledClass);
+  }
+}
 
 applyButton.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  
+
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: bionify,
   });
-  
   chrome.storage.sync.get(["isOn"], (data) => {
     // updatebionifyToggle(!data.isOn);
     chrome.storage.sync.set({ isOn: !data.isOn });
   });
 });
-
-greyscale.addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: setGreyscale,
-  });
-
-  chrome.storage.sync.get(["greyscale"], (data) => {
-    // updatebionifyToggle(!data.isOn);
-    chrome.storage.sync.set({ greyscale: !data.greyscale });
-  });
 
 fontSelect.addEventListener('change', async function(event) {
   var selectedFont = event.target.value;
@@ -193,14 +164,6 @@ autoButton.addEventListener("click", async () => {
   chrome.storage.sync.get(["autoApply"], (data) => {
     updateAutoApplyText(!data.autoApply);
     chrome.storage.sync.set({ autoApply: !data.autoApply });
-  });
-});
-
-greyscale.addEventListener("click", async () => {
-  document.body.style.filter = "greyscale(100%)";
-  chrome.storage.sync.get(["greyscale"], (data) => {
-    updateGreyscaleText(!data.greyscale);
-    chrome.storage.sync.set({ greyscale: !data.greyscale });
   });
 });
 
