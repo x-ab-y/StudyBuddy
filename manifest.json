@@ -40,5 +40,11 @@
       },
       "description": "Toggle auto bionic reading on the page"
     }
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/content.js"]
+    }
+  ]
 }
