@@ -16,15 +16,13 @@ button {
     #8c8c8c 0,
     #000000 100%
   ); */
-  background-color: transparent;
+  background-color: #304D30;
   border: 2px solid #1A1A1A;
   border-radius: 5px;
   box-sizing: border-box;
-  color: #3B3B3B;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-shadow: #B6C4B6 inset;
   box-sizing: border-box;
-  color: #333;
+  color: #fff;
   cursor: pointer;
   display: inline-flex;
   font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
@@ -49,23 +47,24 @@ button {
   touch-action: manipulation;
   white-space: nowrap;
   will-change: box-shadow, transform;
+  width: 70%;
 }
 
 body {
   margin: 0px;
   font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
     sans-serif;
-  background-color: #ababab;
-  color: #333;
-  width: 45em;  
-  height: 45em;  
+  background-color: #102318;
+  color: #B6C4B6;
+  width: 25em;  
+  height: 35em;  
 }
 
 button:hover {
   transform: translateY(-2px);
-  color: #fff;
-  background-color: #1A1A1A;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  color: #000;
+  background-color: #cbcb75;
+  /* box-shadow: #cbcb75 0 8px 15px; */
 }
 
 button:active {
@@ -86,16 +85,16 @@ button.current {
 .button-enabled {
   background-image: radial-gradient(
     100% 100% at 100% 0,
-    #5adaff 0,
-    #5468ff 100%
+    #308a41 0,
+    #12ae31 100%
   );
 }
 
 .button-disabled {
   background-image: radial-gradient(
     100% 100% at 100% 0,
-    #fc5aff 0,
-    #ff5461 100%
+    #9d9112 0,
+    #651717 100%
   );
 }
 
@@ -118,6 +117,7 @@ button.current {
   border-color: grey;
   /* padding: 5px; */
   margin: 8px;
+  display: none;
 }
 
 .small-group {
@@ -139,8 +139,9 @@ input {
   align-items: center;
   text-align: center;
   /* background: #1abc9c; */
-  background-color: #181818;
-  color: #ababab;
+  background-color: #163020;
+  color: #B6C4B6;
+  margin-bottom: 1em;
 }
 
 .header_logo {
@@ -150,13 +151,36 @@ input {
   letter-spacing: 2px;
 }
 
+.option {
+  color: #fff;
+}
+
 .select-container {
   display: flex;
   justify-content: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 #font-select {
-  width: 50%; /* Adjust as needed */
+  width: 65%; /* Adjust as needed */
+  background-color: #304D30;
+  border-width: 0.5em;
+  border-radius: 0.5em;
+  border-color: #304D30;
+  color: #fff;
+}
+
+#font-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #304D30;
+  transition: .25s all ease;
+  pointer-events: none;
+  color: #304D30 ;
 }
 
 .go-to-options-container {

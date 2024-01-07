@@ -8,60 +8,62 @@
     <div class="header">
       <h2 class="header_logo">StudyBuddy</h2>
     </div>
-    <div class="button-container">
-      <button id="applyButton">&#128214; Toggle bionic reading</button>
-    </div>
-    <div class="select-container">
-      <select id="font-select">
-        <option value="Arial">Arial</option>
-        <option value="Helvetica">Helvetica</option>
-        <option value="Open Dyslexic">Open Dyslexic</option>
-        <option value="Comic Sans MS">Comic Sans MS</option>
-        <option value="Courier New">Courier New</option>
-        <option value="Times New Roman">Times New Roman</option>
-        <option value="Verdana">Verdana</option>
-        <!-- Add more options as needed -->
-      </select>
-    </div>
-    <div class="button-container">
-      <button id="greyscale"> Toggle greyscale mode</button>
-    </div>
-    <div class="button-container">
-      <button id="makeFocusPage"> Generate focused page</button>
-    </div>
-    <div class="button-container">
-      <button id="summarize"> Summarize</button>
-    </div>
-    <div class="button-container">
-      <button id="autoButton">Toggle Auto</button>
-    </div>
-    <div class="div-group">
-      <div class="small-group">
-        <div class="label">Exclude URL</div>
-        <input type="text" id="excludePattern" name="highlight" />
-        <div class="button-container">
-          <button id="excludePageButton">Add Pattern</button>
-        </div>
-        <div class="label">Highlighted Styles</div>
-        <input type="text" id="highlight-input" name="highlight" />
+    <div class="body-layout">
+      <div class="button-container">
+        <button id="applyButton">&#128214; Toggle bionic reading</button>
       </div>
-      <div class="small-group">
-        <div class="label">Unhighlighted Styles</div>
-        <input type="text" id="rest-input" name="rest" />
-      </div>
-      <div class="small-group">
-        <div class="label">
-          Highlight Algorithm
-          <a
-            href="https://github.com/ahrm/chrome-fastread?tab=readme-ov-file#algorithm-specification"
-            target="_blank"
-            ><b>(?)</b></a
-          >
-        </div>
-        <input type="text" id="algorithmInput" name="algorithm" />
+      <div class="select-container">
+        <select id="font-select">
+          <option style="color: aliceblue;" value="Arial">Arial</option>
+          <option value="Helvetica">Helvetica</option>
+          <option value="Open Dyslexic">Open Dyslexic</option>
+          <option value="Comic Sans MS">Comic Sans MS</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
+          <!-- Add more options as needed -->
+        </select>
       </div>
       <div class="button-container">
-        <button id="restore-button">Restore Default</button>
+        <button id="greyscale"> Toggle greyscale mode</button>
+      </div>
+      <div class="button-container">
+        <button id="makeFocusPage"> Generate focused page</button>
+      </div>
+      <div class="button-container">
+        <button id="summarize"> Summarize</button>
+      </div>
+      <div class="button-container">
+        <button id="autoButton">Toggle Auto</button>
+      </div>
+      <div class="div-group">
+        <div class="small-group">
+          <div class="label">Exclude URL</div>
+          <input type="text" id="excludePattern" name="highlight" />
+          <div class="button-container">
+            <button id="excludePageButton">Add Pattern</button>
+          </div>
+          <div class="label">Highlighted Styles</div>
+          <input type="text" id="highlight-input" name="highlight" />
+        </div>
+        <div class="small-group">
+          <div class="label">Unhighlighted Styles</div>
+          <input type="text" id="rest-input" name="rest" />
+        </div>
+        <div class="small-group">
+          <div class="label">
+            Highlight Algorithm
+            <a
+              href="https://github.com/ahrm/chrome-fastread?tab=readme-ov-file#algorithm-specification"
+              target="_blank"
+              ><b>(?)</b></a
+            >
+          </div>
+          <input type="text" id="algorithmInput" name="algorithm" />
+        </div>
+        <div class="button-container">
+          <button id="restore-button">Restore Default</button>
+        </div>
       </div>
     </div>
     <!-- <button id="go-to-options">Go to options</button> -->
@@ -79,8 +81,7 @@
         title="Stars"
       ></iframe>
     </div> -->
-
-    <script src="popup.js" type="module"></script>
     <script src="options.js"></script>
+    <script src="popup.js" type="module"></script>
   </body>
 </html>
