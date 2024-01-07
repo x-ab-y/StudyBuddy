@@ -1,4 +1,5 @@
 document.addEventListener('mouseup', () => {
+  console.log('mouseup');
   let highlightedText = window.getSelection().toString().trim();
   if (highlightedText) {
     chrome.runtime.sendMessage({ type: 'HIGHLIGHTED_TEXT', text: highlightedText }, response => {
