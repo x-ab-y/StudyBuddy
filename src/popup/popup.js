@@ -3,7 +3,7 @@ import {
   defaultHighlightSheet,
   defaultRestSheet,
   defaultAlgorithm,
-  setGreyscale
+  setGreyscale,
 } from "../utils.js";
 
 let applyButton = document.getElementById("applyButton");
@@ -17,6 +17,7 @@ let highlightSheetInput = document.getElementById("highlight-input");
 let restSheetInput = document.getElementById("rest-input");
 let algorithmInput = document.getElementById("algorithmInput");
 let fontSelect = document.getElementById("font-select");
+let summarize = document.getElementById("summarize");
 
 let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 let currentURL = tab.url;
@@ -159,14 +160,20 @@ fontSelect.addEventListener('change', async function(event) {
   // Get the current active tab
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: bionify,
-  });
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: bionify,
-  });
+  // chrome.scripting.executeScript({
+  //   target: { tabId: tab.id },
+  //   function: fontchange(),
+  // });
+  
+
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        function: bionify,
+      });
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        function: bionify,
+      });
 });
 
 greyscale.addEventListener("click", async () => {
@@ -190,6 +197,10 @@ makeFocusPage.addEventListener("click", async () => {
   window.open("../focusmode/focuswindow.html" );
 })
 
+summarize.addEventListener("click", async () => {
+  window.open("../summarizer/summarize.html" );
+})
+
 autoButton.addEventListener("click", async () => {
   chrome.storage.sync.get(["autoApply"], (data) => {
     updateAutoApplyText(!data.autoApply);
@@ -209,10 +220,10 @@ function onAlgorithmInputChange() {
   chrome.storage.sync.set({ algorithm: algorithmInput.value });
 }
 
-document.querySelector('#go-to-options').addEventListener('click', function() {
-  if (chrome.runtime.openOptionsPage) {
-    chrome.runtime.openOptionsPage();
-  } else {
-    window.open(chrome.runtime.getURL('options.html'));
-  }
-});
+// document.querySelector('#go-to-options').addEventListener('click', function() {
+//   if (chrome.runtime.openOptionsPage) {
+//     chrome.runtime.openOptionsPage();
+//   } else {
+//     window.open(chrome.runtime.getURL('options.html'));
+//   }
+// });
