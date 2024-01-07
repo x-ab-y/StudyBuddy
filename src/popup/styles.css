@@ -1,22 +1,36 @@
+@font-face {
+  font-family: 'Open Dyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/ttf/OpenDyslexic3-Regular.ttf') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/ttf/OpenDyslexic3-Bold.ttf') format('woff2'),
+       ;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 button {
   align-items: center;
   appearance: none;
-  background-image: radial-gradient(
+  /* background-image: radial-gradient(
     100% 100% at 100% 0,
-    /* #2c3e50 0,
-    #000000 100%  */ #8c8c8c 0,
+    #8c8c8c 0,
     #000000 100%
-  );
-  border: 0;
-  border-radius: 6px;
+  ); */
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #3B3B3B;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
   box-sizing: border-box;
-  color: #fff;
+  color: #333;
   cursor: pointer;
   display: inline-flex;
   font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
     sans-serif;
+  /* font-family: 'Open Dyslexic', sans-serif; */
+  font-weight: 600;
   /* height: 48px; */
   height: 36px;
   /* width: 100%; */
@@ -29,7 +43,7 @@ button {
   position: relative;
   text-align: left;
   text-decoration: none;
-  transition: box-shadow 0.15s, transform 0.15s;  
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -41,14 +55,17 @@ body {
   margin: 0px;
   font-family: Helvetica, Inter, -apple-system, BlinkMacSystemFont, "Roboto",
     sans-serif;
-  background-color: #29292a;
+  background-color: #ababab;
+  color: #333;
   width: 30em;  
   height: 45em;  
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: rgba(35, 35, 224, 0.25) 0 8px 15px;
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
 button:active {
@@ -85,7 +102,7 @@ button.current {
 .label {
   margin: 5px;
   font-weight: bold;
-  color: rgb(228, 226, 226);
+  color: #333;
 }
 
 .desc {
@@ -111,6 +128,8 @@ button.current {
 input {
   width: 90%;
   background-color : #d3d3d3; 
+  border-radius: 5em;
+  padding: 0.2em;
 }
 
 .header {
@@ -120,13 +139,8 @@ input {
   align-items: center;
   text-align: center;
   /* background: #1abc9c; */
-  background-image: radial-gradient(
-    100% 100% at 100% 0,
-    /* #2c3e50 0,
-    #000000 100%  */ #8c8c8c 0,
-    #000000 100%
-  );
-  color: #5468ff;
+  background-color: #181818;
+  color: #ababab;
 }
 
 .header_logo {
@@ -134,4 +148,18 @@ input {
   width: 12rem;
   font-size: 24px;
   letter-spacing: 2px;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+}
+
+#font-select {
+  width: 50%; /* Adjust as needed */
+}
+
+.go-to-options-container {
+  display: flex;
+  justify-content: center;
 }
