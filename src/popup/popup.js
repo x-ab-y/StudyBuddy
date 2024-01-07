@@ -3,9 +3,11 @@ import {
   defaultHighlightSheet,
   defaultRestSheet,
   defaultAlgorithm,
+  setGreyscale
 } from "../utils.js";
 
 let applyButton = document.getElementById("applyButton");
+let greyscale = document.getElementById("greyscale");
 let autoButton = document.getElementById("autoButton");
 let excludePatternInput = document.getElementById("excludePattern");
 let excludePageButton = document.getElementById("excludePageButton");
@@ -158,6 +160,21 @@ fontSelect.addEventListener('change', async function(event) {
     target: { tabId: tab.id },
     function: bionify,
   });
+});
+
+greyscale.addEventListener("click", async () => {
+  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: setGreyscale,
+  });
+
+  chrome.storage.sync.get(["isOn"], (data) => {
+    // updatebionifyToggle(!data.isOn);
+    chrome.storage.sync.set({ isOn: !data.isOn });
+  });
+
 });
 
 autoButton.addEventListener("click", async () => {
