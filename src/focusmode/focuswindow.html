@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Focus Mode</title>
+</head>
+
+<style>
+    body {
+        background-color: rgb(252, 245, 237);
+    }
+
+    .layout {
+        /* display: grid;
+        grid-template-areas:
+        'main main main main main main main feature'; */
+        gap: 10px;
+        padding: 10px;
+        display: flex;
+    }
+
+    .paragraphs {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        line-height: 2;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-left: 10%;
+        margin-right: 2%;
+        grid-area: main;
+        flex:1
+    }
+
+    .features {
+        grid-area: feature;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .theme {
+        font-size: 15px;
+        margin: 5px;
+        margin-top: 10px;
+    }
+
+    .par {
+        font-size: 15px;
+        margin: 5px;
+        color: black;
+    }
+
+    .general {
+        font-size: 10px;
+        padding: 5px;
+        margin: 5px;
+        justify-content: left;
+        background-color: rgb(255, 228, 196);
+        border-radius: 5px;
+        border: 0;
+    }
+
+    button:hover {
+        filter: brightness(75%);
+    }
+
+    button:active {
+        filter: saturate(120%);
+    }
+
+    .night {
+        background-color: rgb(25, 25, 112);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .day {
+        background-color: rgb(255, 254, 211);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .forest {
+        background-color: rgb(106, 240, 131);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .roses {
+        background-color: rgb(231, 47, 86);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    .ocean {
+        background-color: rgb(73, 73, 241);
+        padding: 8px;
+        margin-bottom: 5px;
+        border: 0cap;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    .size {
+        size: 10px;
+        max-width: 100px;
+    }
+
+</style>
+
+<body id="background">
+    <div class="layout">
+        <!-- main paragraphs -->
+        <section class="paragraphs" id="paragraph">
+            <p class="par" id="par">the paragraph</p>
+        </section>
+
+        <!-- features -->
+        <div class="features">
+            <!-- themes -->
+            <p class="theme">Themes</p>
+            <div class="themes">
+                <button class="night" id="night"></button>
+                <button class="day" id="day"></button>
+                <button class="forest" id="forest"></button>
+                <button class="roses" id="roses"></button>
+                <button class="ocean" id="ocean"></button>
+            </div>
+
+            <!-- line spacing -->
+            <p class="theme">Spacing</p>
+            <select name="fonts" id="fonts">
+                <option value="1">Single</option>
+                <option value="1.15">1.15</option>
+                <option value="1.5">1.5</option>
+                <option value="2" selected="selected">Double</option>
+            </select>
+
+            <!-- indentation DOES NOT WORK-->
+            <!-- <p class="theme">Indentation</p>
+            <input type="radio" id="default" name="indentation" value="d">
+            <label for="default" id="defaultColor">None</label><br>
+            <input type="radio" id="indent" name="indentation" value="i">
+            <label for="indent" id="indentColor">Indent</label><br> -->
+
+            <!-- font size -->
+            <p class="theme">Font Size</p>
+            <input class="size" id="size" type="number" value="15">
+
+        <br>
+            <button class="general" id="cButton">Confirm</button>
+        </div>
+    </div>
+    <script src="focusmode.js"></script>
+</body>
+
+</html>
