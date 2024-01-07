@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Summary</title>
+</head>
+
+<style>
+    body {
+        background-color: rgb(252, 245, 237);
+    }
+
+    .layout {
+        display: grid;
+        grid-template-areas:
+        'main main main main main main main feature';
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .paragraph {
+        background-color: white;
+        padding: 20px;
+        text-align: left;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-left: 10%;
+        margin-right: 2%;
+        grid-area: main;
+    }
+
+    .features {
+        grid-area: feature;
+        padding: 10px;
+        text-align: right;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-left: 2%;
+        margin-right: 10%;
+    }
+
+    p {
+        font-size: 15px;
+        margin: 5px;
+        line-height: 2;
+    }
+
+    button {
+        font-size: 10px;
+        padding: 10px;
+        justify-content: left;
+        background-color: bisque;
+        border-radius: 5px;
+        border: 0;
+    }
+
+    button:hover {
+      background-color: rgb(235, 212, 183);
+    }
+
+    button:active {
+      background-color: rgb(220, 181, 134);
+    }
+
+</style>
+
+<body>
+    <div class="layout">
+        <div class="paragraph">
+            <p id="summary-par">Loading summary</p>
+        </div>
+    </div>
+    <!-- <script src="../utils.js"></script> -->
+    <script src="summarize.js" type="module"></script>
+</body>
+
+</html>
